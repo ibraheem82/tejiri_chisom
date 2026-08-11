@@ -1,2 +1,2 @@
-def name(firstName, lastName)
+def name(firstName, lastName):
     return firstName + lastName
