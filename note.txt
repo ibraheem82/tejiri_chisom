@@ -1,0 +1,41 @@
+Git takes snapshots of your files. Every time you "save" a new version in Git (called making a commit), it records exactly what changed, who changed it, and when. You rewind time to look at any previous snapshot, compare two snapshots, or completely restore an old version.
+
+
+
+
+
+The Two Main Types
+
+Local Repository: Reside directly on your computer inside your project directory. You write code, create save points ("commits"), and manage versions here locally without needing an internet connection.
+
+
+
+Remote Repository: Hosted online on a platform like GitHub, GitLab, or Bitbucket, It acts as the master backup where you upload your work("push") and download updates from teammates ("pull").
+
+```
+
+git init -> Creates a hidden folder (.git) inside your current folder. This turns your normal folder into a Git repository so Git can start tracking it.
+
+############################
+When to use : when you are starting a brand new project from scratch.
+```
+
+Command 2: `git status`
+What it does: Asks Git "What is going on right now? It show you which files are changed, whihc are in the staging Area, and which are untracked (new files Git has never seen).
+When to use: Constantly . Before you type any other commadn , type `git status`. It tells you exactly what your next move should be.
+
+
+Command 3: `git add <filename>`
+
+What it does: Moves a specific file from your Working Directory into the Staging Area. It tells Git "I want to include the changes from THIS file in my next save."
+%Pro-tip: To add every changed file in your current folder, use `git add .` (the dot means "everything)
+
+
+
+Command 4: `git commit -m "Your message here"`
+
+What it does: Takes everything that ia sitting in the Staging Area, zips it up into a permanent snapshot, stores it in the Respository. The -m stands for "message".
+
+
+
+
