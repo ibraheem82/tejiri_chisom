@@ -1,0 +1,3 @@
+function proxy(vpn = "CyberGhost"){
+    
+}
