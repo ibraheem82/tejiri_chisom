@@ -1,0 +1,197 @@
+/* CSS VARIABLES */
+
+:root {
+    /* Colors */
+    --primary-color: #ffb703;
+    --secondary-color: #023047;
+    --accent-color: #fb8500;
+    --text-dark: #666666;
+    --text-white: #ffffff;
+    --bg-light: #f7f9fc;
+    --bg-dark: #023047;
+
+    /* Spacing */
+    --section-padding: 80px 0;
+    --container-width: 90%;
+    --max-width: 1200px;
+
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.4s ease;
+
+    /* Shadows */
+    /* Create a sense of depth. sm is subtile, lg makes elements looks like they are floating high above the page. */
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* * RESET * BASE STYLES */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    /* when you click a link to jump to a section, the page glides down smoothly instead of instantly snapping */
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    /* To prevent accidental horizontal scrolling on mobile. */
+    overflow: hidden;
+}
+
+
+/* Ensures images neven stretch wider than thier container, removes ugly default underlines from links, and removes bullet points from lists */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* UTILITY CLASSES */
+.container {
+    width: var(--container-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+
+
+/* HEADER & NAVIGATION */
+
+
+/* This pins it to the top of the screen even when you scroll. */
+.header {
+    width: 100%;
+    background-color: var(--secondary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    width: var(--container-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-text {
+    color: var(--text-white);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-white);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+/* It creates an invisible 2px yellow line under the link. On hover, its width animates from 0 to 100%, creating a slick underline drawing effect. */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition-fast);
+
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+/* The .hambuger isnjust one line. The ::before and ::after pseudo-elements create the top and bottom lines, positioned absolutely -8px and +=8px away from the center line */
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-white);
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-white);
+    transition: var(--transition-fast);
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
